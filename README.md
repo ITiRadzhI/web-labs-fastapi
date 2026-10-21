@@ -1,16 +1,17 @@
-# Лабораторная работа №1: FastAPI и CRUD в памяти
+# Лабораторная работа №2: асинхронная SQLite через SQLAlchemy
 
-Python 3.11+. Из корня папки проекта в PowerShell:
+Это продолжение первой лабораторной с теми же пятью маршрутами. Python 3.11+. Из корня проекта в PowerShell:
 
 ```powershell
 py -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+Copy-Item .env.example .env
 uvicorn app.main:app --reload
 ```
 
 Документация: http://127.0.0.1:8000/docs
-Тесты: `pytest -q`. После перезапуска сервера список задач обнуляется.
-Для следующей лабораторной используйте проект lab-02: он продолжает тот же API, но данные сохраняет в SQLite.
+Тестирование: `pytest -q`. Данные хранятся в файле `app.db` и остаются после перезапуска.
 
-Рекомендуемая ветка Git: `lab-01-basic-api`.
+SQLite создаётся автоматически при запуске приложения. Для лабораторной №3 вместо `create_all` будут введены миграции Alembic.
+Рекомендуемая ветка Git: `lab-02-database`. Не публикуйте `.env` и `app.db`.
